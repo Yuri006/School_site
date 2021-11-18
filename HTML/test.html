@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Название документа</title>
+    <style>
+        li { border: 1px solid red; }
+        .class1 { list-style-position: outside; }
+        .class2 { list-style-position: inside; }
+        .class3 {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+    </style>
 </head>
+
 <body>
-    <p>
-        лох
-    </p>
+<ul class="class1">
+    <li>Кофе</li><li>Чай</li>
+</ul>
+<ul class="class2">
+    <li>Кофе</li><li>Чай</li>
+</ul>
+<ul class="class3">
+    <li>Кофе</li><li>Чай</li>
+</ul>
 </body>
 </html>

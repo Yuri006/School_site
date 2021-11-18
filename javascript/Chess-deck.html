@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess</title>
+    <script src="chess-deck.js">
+        let board;
+        board = generate_board();
+        console.log(board);
+        document.getElementById("board").innerHTML = board;
+        document.getElementById("board")
+    </script>
+    <style>
+        .chessboard {
+            width: 640px;
+            height: 640px;
+            margin: 20px;
+            border: 25px solid #333;
+        }
+        .black {
+            background-color: #999;
+            text-align:center;
+            display: table-cell;
+        }
+        .white {
+            background-color: #fff;
+            text-align:center;
+            display: table-cell;
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+    </div>
+</body>
+</html>

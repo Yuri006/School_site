@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CssMenu</title>
+    <style>
+        #navbar ul {
+            display: none;
+            background-color: #12162a;
+            position: absolute;
+            top: 100%;
+            border-left: 40px solid #12162a;
+            border-bottom: 1px solid #616991;
+        }
+        #navbar li:hover ul { display: block; }
+        #navbar, #navbar ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #navbar {
+            height: 50px;
+            background-color: #12162a;
+            padding-left: 35%;
+            min-width: 470px;
+        }
+        #navbar li {
+            display: inline-block;
+            position: relative;
+            height: 100%;
+        }
+        #navbar li a {
+            display: block;
+            padding: 10px;
+            width: 100px;
+            color: #e7e3bc;
+            text-decoration: none;
+            text-align: center;
+        }
+        #navbar ul li { float: none; }
+        #navbar li:hover { background-color: #1d2341; }
+        #navbar ul li:hover { background-color: #1d2341; }
+    </style>
+</head>
+<body>
+<ul id="navbar">
+    <li><a href="#">Главная</a></li>
+    <li><a href="#">Услуги</a>
+        <ul>
+            <li><a href="#">Услуга 1</a></li>
+            <li><a href="#">Услуга 2</a></li>
+            <li><a href="#">Услуга 3</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Цены</a></li>
+    <li><a href="#">Контакты</a>
+        <ul>
+            <li><a href="#">Авторы 1</a></li>
+            <li><a href="#">Авторы 2</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
