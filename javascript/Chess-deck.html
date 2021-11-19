@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Chess</title>
-    <script src="chess-deck.js">
-        document.getElementById("board").innerHTML = generate_board();
-    </script>
     <style>
         .chessboard {
-            width: 640px;
-            height: 640px;
-            margin: 20px;
             border: 25px solid #333;
         }
         .black {
@@ -27,6 +21,9 @@
 </head>
 <body>
     <div id="board">
+        <script src="chess-deck.js">
+            document.getElementById("board").appendChild(generate_board());
+        </script>
     </div>
 </body>
 </html>

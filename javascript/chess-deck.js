@@ -1,22 +1,49 @@
-function generate_board() {
-    let deck;
-    let color_deck;
-    deck = '<table class=\'chessboard\'>\n';
-    let letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-    for (let i = 0; i < 8; i += 1) {
-        deck += '    <tr>\n' +
-            '       <td><a href=\'#\'>' + (8 - i).toString() + '</a>\n';
-        for (let j = 0; j < 8; j++) {
-            if ((i % 2 === 0 & j % 2 === 0) || (i % 2 === 1 & j % 2 === 1)) {
-                color_deck = 'white';
+function generate_board(side_px) {
+    let letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    let table = document.createElement("table");
+    table.className = 'chessboard';
+    for (let i = 1; i < 9; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j < 9; j++) {
+            let td = document.createElement('td');
+            if (i % 2 == j % 2) {
+                td.className = "white";
             } else {
-                color_deck = 'black';
+                td.className = "black";
             }
-            deck += '           <td id=' + letter[i] + (8 - j).toString() + ' class=' + color_deck + ' ><a href=\'#\'></a></td>\n';
+            if (j === 0) {
+                td.id = ''
+            } else {
+                td.id = letter[j - 1].toString() + i.toString()
+            }
+            td.style.width = (side_px / 8).toString() + 'px';
+            td.style.height = (side_px / 8).toString() + 'px';
+            console.log(td.style.width, td.style.height, td.id)
+            tr.appendChild(td);
         }
-        deck += '       </td>\n' + '    </tr>\n';
+        table.appendChild(tr);
     }
-    deck += '</table>\n';
-    return deck
+    console.log(table)
+    // document.body.appendChild(table);
+    return table
+}
+
+function set_img(cell, path_to_img = 'img.png') {
+    let image = document.createElement('img');
+    image.src = path_to_img;
+    image.style = "max-height:100%; max-width:100%";
+    // image.width = parseInt(document.styleSheets[0].rules[0].style['width']) / 16;
+    // image.height = parseInt(document.styleSheets[0].rules[0].style['height']) / 16;
+    document.getElementById(cell).appendChild(image);
+    console.log(document);
+}
+
+function delete_img(cell) {
+    document.getElementById(cell).removeChild(document.getElementById(cell).firstChild);
+    console.log(document.body);
+}
+
+function start_game() {
+    return 0
 }
 
