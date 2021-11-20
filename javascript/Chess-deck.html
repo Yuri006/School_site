@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Chess</title>
+    <script src="chess-deck.js"></script>
     <style>
         .chessboard {
             border: 25px solid #333;
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 0px;
+            border-collapse: collapse;
+
         }
         .black {
             background-color: #999;
@@ -17,13 +23,35 @@
             text-align:center;
             display: table-cell;
         }
+        .button {
+            width: 16%;
+            height: 10%;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            background-color: black;
+            color: white;
+            position: absolute;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            margin-top: 40px
+        }
+
+        .button:hover {
+            background-color: #2f2d2d;
+            color: white;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
     </style>
 </head>
 <body>
     <div id="board">
-        <script src="chess-deck.js">
-            document.getElementById("board").appendChild(generate_board());
+        <script>
+            document.getElementById("board").appendChild(generate_board(640));
+            console.log(document.getElementById("board"));
+            start_game();
         </script>
     </div>
+    <button class="button" onclick="restart_game()">Restart</button>
 </body>
 </html>
