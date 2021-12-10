@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test №{{ id }}</title>
+</head>
+<script>
+    function generate_test(id) {
+        let link_for_image = [['images/but.png', 'images/cuc.png', 'images/pen.png'], ['', '', ''], ['', '', '']]
+        console.log(id)
+        let form = document.createElement("form")
+        form.action = "/cgi-bin/test_" + id.toString()
+        for (i = 0; i < 3; i++) {
+            let test_var = document.createElement('input')
+            test_var.id = 'test_img'
+            test_var.type = 'radio'
+            test_var.name = 'answer'
+            test_var.value = (i + 1).toString()
+            test_var.src = link_for_image[id-1][i]
+            test_var.style.backgroundImage = "url(" + link_for_image[id-1][i] + ")"
+            form.appendChild(test_var)
+        }
+        form.innerHTML += '<input id="send" type="submit" value="Submit">'
+        return form
+    }
+</script>
+<style>
+    input#test_img{
+        height: 100px;
+        width: 100px;
+        background: url('images/cuc.png');
+    }
+    input#send {
+        text-indent: -9999px;
+        line-height: 0;
+        height: 22px;
+        width: 22px;
+        cursor: pointer;
+        float: left;
+    }
+</style>
+<body>
+<div id="main">
+    <script>
+        document.getElementById("main").appendChild(generate_test({{ id }}));
+    </script>
+</div>
+</form>
+</body>
+</html>
